@@ -23,7 +23,7 @@ class _AuthAppPageState extends State<AuthAppPage> {
 
   Future<void> _handleLink() async {
     setState(() => _isLoading = true);
-    await Future.delayed(const Duration(seconds: 2)); // TODO: real API call
+    await Future.delayed(const Duration(seconds: 2)); 
     if (mounted) setState(() { _isLoading = false; _isLinked = true; });
   }
 

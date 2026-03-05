@@ -3,44 +3,61 @@ import '../pages/onboarding/onboarding_page.dart';
 import '../pages/auth/login_page.dart';
 import '../pages/auth/sign_up_page.dart';
 import '../pages/auth/forget_password.dart';
-import '../pages/tabs [passenger]/home/home_page.dart';
+import '../pages/tabs [passenger]/home/home_page.dart' as passenger;
 import '../pages/tabs [passenger]/support/support_page.dart';
 import '../pages/tabs [passenger]/profile/settings_page.dart';
 import '../pages/tabs [passenger]/trajet/trajet_page.dart';
 import '../pages/tabs [passenger]/membre/membre_pass_screen.dart';
 import '../pages/splash/splash_page.dart';
+import '../pages/tabs [driver]/dashboard/dashboard_page.dart';
+import '../pages/tabs [driver]/Earnings/earnings_page.dart';
+import '../pages/tabs [driver]/Rides/rides_page.dart';
+import '../pages/tabs [driver]/profile/driver_profile_page.dart';
 
 class AppRouter {
-  // ── Route name constants ───────────────────────────────────────────────────
-  static const String splash      = '/splash';
-  static const String onboarding  = '/onboarding';
-  static const String login       = '/login';
-  static const String signup      = '/signup';
-  static const String forgotPass  = '/forgot-password';
-  static const String home        = '/home';
-  static const String support     = '/support';
-  static const String membre      = '/membre';
-  static const String profile     = '/profile';
-  static const String driverHome  = '/driver/home';
+  static const String splash = '/splash';
+  static const String onboarding = '/onboarding';
+  static const String login = '/login';
+  static const String signup = '/signup';
+  static const String forgotPass = '/forgot-password';
 
-  // ── Initial route ──────────────────────────────────────────────────────────
-  static const String initialRoute = splash;
+  // Passenger
+  static const String home = '/home';
+  static const String support = '/support';
+  static const String membre = '/membre';
+  static const String profile = '/profile';
+  static const String trajet = '/trajet';
 
-  // ── Route map ─────────────────────────────────────────────────────────────
+  // Driver
+  static const String driverDashboard = '/driver/dashboard';
+  static const String driverEarnings = '/driver/earnings';
+  static const String driverRides = '/driver/rides';
+  static const String driverProfile = '/driver/profile';
+
+static const String initialRoute = splash;
+
+
   static Map<String, WidgetBuilder> get routes => {
-    splash:     (_) => const SplashPage(),
+    splash: (_) => const SplashPage(),
     onboarding: (_) => const OnboardingPage(),
-    login:      (_) => const LoginPage(),
-    signup:     (_) => const SignUpPage(),
+    login: (_) => const LoginPage(),
+    signup: (_) => const SignUpPage(),
     forgotPass: (_) => const ForgotPasswordPage(),
-    home:       (_) => const HomePage(),
-    support:    (_) => const SupportPage(),
-    membre:     (_) => const MembrePassScreen(),
-    profile:    (_) => const SettingsPage(),
-    driverHome: (_) => const TrajetPage(),
+
+    // Passenger
+    home: (_) => const passenger.HomePage(),
+    support: (_) => const SupportPage(),
+    membre: (_) => const MembrePassScreen(),
+    profile: (_) => const SettingsPage(),
+    trajet: (_) => const TrajetPage(),
+
+    // Driver
+    driverDashboard: (_) => const DashboardPage(),
+    driverEarnings: (_) => const EarningsPage(),
+    driverRides: (_) => const RidesPage(),   // ← added
+    driverProfile: (_) => const DriverProfilePage(),
   };
 
-  /// Push a named route
   static Future<T?> push<T>(
     BuildContext context,
     String routeName, {
@@ -49,7 +66,6 @@ class AppRouter {
     return Navigator.pushNamed<T>(context, routeName, arguments: args);
   }
 
-  /// Replace current route (no back button)
   static Future<T?> replace<T>(
     BuildContext context,
     String routeName, {
@@ -62,7 +78,6 @@ class AppRouter {
     );
   }
 
-  /// Clear the entire stack and go to a route
   static Future<T?> clearAndGo<T>(
     BuildContext context,
     String routeName, {
@@ -76,7 +91,6 @@ class AppRouter {
     );
   }
 
-  /// Go back
   static void pop(BuildContext context, [dynamic result]) {
     Navigator.pop(context, result);
   }

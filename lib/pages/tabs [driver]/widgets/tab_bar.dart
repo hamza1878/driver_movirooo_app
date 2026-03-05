@@ -1,39 +1,34 @@
 import 'package:flutter/material.dart';
-import '../../routing/router.dart';
-import '../../../../l10n/app_localizations.dart';
 
-class AppTabBar extends StatelessWidget {
+class DriverTabBar extends StatelessWidget {
   final int currentIndex;
   final ValueChanged<int>? onTap;
 
-  const AppTabBar({
+  const DriverTabBar({
     super.key,
     required this.currentIndex,
     this.onTap,
   });
 
-  static const _routes = [
-    AppRouter.home,
-    AppRouter.trajet,
-    AppRouter.membre,
-    AppRouter.support,
-    AppRouter.profile,
-  ];
-
   static const _icons = [
-    Icons.home_rounded,
-    Icons.directions_car_rounded,
-    Icons.workspace_premium_rounded,
-    Icons.headset_mic_rounded,
+    Icons.bar_chart_rounded,
+    Icons.attach_money_rounded,
+    Icons.map_rounded,
     Icons.person_outline_rounded,
   ];
 
-  static const _labelKeys = [
-    'tab_home',
-    'tab_bookings',
-    'tab_membre',
-    'tab_support',
-    'tab_profile',
+  static const _labels = [
+    'Stats',
+    'Earnings',
+    'Activities',
+    'Profile',
+  ];
+
+  static const _routes = [
+    '/driver/dashboard',
+    '/driver/earnings',
+    '/driver/activities',
+    '/driver/profile',
   ];
 
   void _handleTap(BuildContext context, int index) {
@@ -47,7 +42,6 @@ class AppTabBar extends StatelessWidget {
     final isDark    = Theme.of(context).brightness == Brightness.dark;
     final bgColor   = isDark ? const Color(0xFF0F0F12) : Colors.white;
     final topBorder = isDark ? const Color(0xFF1E1E24) : const Color(0xFFE0E0E8);
-    final t         = AppLocalizations.of(context).translate;
 
     return Container(
       height: 72,
@@ -92,7 +86,7 @@ class AppTabBar extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    t(_labelKeys[i]),
+                    _labels[i],
                     style: TextStyle(
                       fontFamily: 'Inter',
                       fontSize: 10,

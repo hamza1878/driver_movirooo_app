@@ -56,17 +56,17 @@ class _TierCardState extends State<TierCard>
     final isLocked = tier.status == TierStatus.locked;
 
     final borderColor = _expanded
-        ? tier.accentColor.withOpacity(0.6)
+        ? tier.accentColor.withValues(alpha: 0.6)
         : AppColors.border(context);
 
     final bgColor = _expanded
-        ? tier.accentColor.withOpacity(isDark ? 0.07 : 0.04)
+        ? tier.accentColor.withValues(alpha: isDark ? 0.07 : 0.04)
         : AppColors.surface(context);
 
     final shadows = _expanded && isDark
         ? [
             BoxShadow(
-              color: tier.accentColor.withOpacity(0.14),
+              color: tier.accentColor.withValues(alpha: 0.14),
               blurRadius: 20,
               offset: const Offset(0, 4),
             ),
@@ -103,7 +103,7 @@ class _TierCardState extends State<TierCard>
                       height: 40,
                       decoration: BoxDecoration(
                         color: tier.accentColor
-                            .withOpacity(isDark ? 0.15 : 0.1),
+                            .withValues(alpha: isDark ? 0.15 : 0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Center(
@@ -208,7 +208,7 @@ class _ExpandedPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Divider(color: tier.accentColor.withOpacity(0.25), height: 1),
+          Divider(color: tier.accentColor.withValues(alpha: 0.25), height: 1),
           const SizedBox(height: 14),
 
           // Discount pill
@@ -217,8 +217,8 @@ class _ExpandedPanel extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
               color: isLocked
-                  ? AppColors.border(context).withOpacity(0.5)
-                  : tier.accentColor.withOpacity(isDark ? 0.18 : 0.12),
+                  ? AppColors.border(context).withValues(alpha: 0.5)
+                  : tier.accentColor.withValues(alpha: isDark ? 0.18 : 0.12),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
