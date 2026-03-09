@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:moviroo/pages/tabs%20%5Bdriver%5D/ActiveRide/active_ride_page.dart';
+import 'package:moviroo/pages/tabs%20%5Bdriver%5D/chat/chat_page.dart';
 import '../pages/onboarding/onboarding_page.dart';
 import '../pages/auth/login_page.dart';
 import '../pages/auth/sign_up_page.dart';
@@ -33,7 +35,11 @@ class AppRouter {
   static const String driverEarnings = '/driver/earnings';
   static const String driverRides = '/driver/rides';
   static const String driverProfile = '/driver/profile';
+static const String activeRide = '/active-ride';
+  static const String chat = '/chat';
 
+
+// Dans routes :
 static const String initialRoute = splash;
 
 
@@ -56,6 +62,9 @@ static const String initialRoute = splash;
     driverEarnings: (_) => const EarningsPage(),
     driverRides: (_) => const RidesPage(),   // ← added
     driverProfile: (_) => const DriverProfilePage(),
+    activeRide: (_) => const ActiveRidePage(),
+    chat: (_) => const ChatPage(),
+
   };
 
   static Future<T?> push<T>(

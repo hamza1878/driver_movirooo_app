@@ -193,7 +193,9 @@ class _UpcomingTab extends StatelessWidget {
         statusLabel: 'Scheduled',
         statusColor: AppColors.primaryPurple,
         onTrack: (ride) {
-          // TODO: open map / navigation screen
+
+  Navigator.pushNamed(context, '/active-ride');
+
         },
         onChat: (ride) {
           // TODO: open chat screen
