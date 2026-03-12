@@ -3,6 +3,7 @@
 // ════════════════════════════════════════════════════════════════════
 
 import 'package:flutter/material.dart';
+import 'package:moviroo_driver_app/routing/router.dart';
 import '../../../../../theme/app_colors.dart';
 import '../../../../../theme/app_text_styles.dart';
 import '../widgets/tab_bar.dart';
@@ -194,7 +195,7 @@ class _UpcomingTab extends StatelessWidget {
         statusColor: AppColors.primaryPurple,
         onTrack: (ride) {
 
-  Navigator.pushNamed(context, '/map-preview', arguments: {'rideId': ride.id});
+  Navigator.pushNamed(context, AppRouter.driverPickup, arguments: {'rideId': ride.id});
 
         },
         onChat: (ride) {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:moviroo_driver_app/pages/auth/LoginDriver.dart' show DriverLoginPage;
+import 'package:moviroo_driver_app/pages/driver_pickup_v2/driver_pickup_page.dart';
 import 'package:moviroo_driver_app/pages/tabs%20%5Bdriver%5D/chat/chat_page.dart';
 import '../pages/tabs [driver]/ActiveRide/active_ride_page.dart';
 import '../pages/tabs [driver]/ride/map_preview_page.dart';
@@ -16,7 +18,7 @@ class AppRouter {
   static const String forgotPass = '/forgot-password';
 
   // Passenger
-
+static const String driverLogin = '/driver/login';
 
   // Driver
   static const String driverDashboard = '/driver/dashboard';
@@ -26,16 +28,18 @@ class AppRouter {
 static const String activeRide = '/active-ride';
   static const String chat = '/chat';
 static const String mapPreview = '/map-preview';
-
+static const String driverPickup = '/driver/pickup';
 
 // Dans routes :
-static const String initialRoute = driverDashboard;
+static const String initialRoute = driverLogin;
 
 
   static Map<String, WidgetBuilder> get routes => {
     
 
-  
+  driverLogin: (_) => const DriverLoginPage(),
+
+driverPickup: (_) => const DriverPickupPage(),
 
     // Driver
     driverDashboard: (_) => const DashboardPage(),

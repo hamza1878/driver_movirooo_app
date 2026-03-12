@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moviroo_driver_app/routing/router.dart';
 import '../../../../theme/app_colors.dart';
 import '../../../../theme/app_text_styles.dart';
 import '../widgets/tab_bar.dart';
@@ -289,7 +290,10 @@ class DriverProfilePage extends StatelessWidget {
                   _SettingsRow(
                     icon: Icons.logout_rounded,
                     label: 'Log Out',
-                    onTap: () {},
+                    onTap: () {
+                          AppRouter.clearAndGo(context, AppRouter.driverLogin);
+
+                    },
                   ),
                 ],
               ),
