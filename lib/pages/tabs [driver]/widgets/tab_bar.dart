@@ -27,7 +27,7 @@ class DriverTabBar extends StatelessWidget {
   static const _routes = [
     '/driver/dashboard',
     '/driver/earnings',
-    '/driver/activities',
+    '/driver/active-ride',
     '/driver/profile',
   ];
 

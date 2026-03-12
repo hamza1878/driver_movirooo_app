@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:moviroo/pages/tabs%20%5Bdriver%5D/ActiveRide/active_ride_page.dart';
-import 'package:moviroo/pages/tabs%20%5Bdriver%5D/chat/chat_page.dart';
-import '../pages/onboarding/onboarding_page.dart';
-import '../pages/auth/login_page.dart';
-import '../pages/auth/sign_up_page.dart';
-import '../pages/auth/forget_password.dart';
-import '../pages/tabs [passenger]/home/home_page.dart' as passenger;
-import '../pages/tabs [passenger]/support/support_page.dart';
-import '../pages/tabs [passenger]/profile/settings_page.dart';
-import '../pages/tabs [passenger]/trajet/trajet_page.dart';
-import '../pages/tabs [passenger]/membre/membre_pass_screen.dart';
-import '../pages/splash/splash_page.dart';
+import 'package:moviroo_driver_app/pages/tabs%20%5Bdriver%5D/chat/chat_page.dart';
+import '../pages/tabs [driver]/ActiveRide/active_ride_page.dart';
+import '../pages/tabs [driver]/ride/map_preview_page.dart';
+
 import '../pages/tabs [driver]/dashboard/dashboard_page.dart';
 import '../pages/tabs [driver]/Earnings/earnings_page.dart';
 import '../pages/tabs [driver]/Rides/rides_page.dart';
@@ -24,11 +16,7 @@ class AppRouter {
   static const String forgotPass = '/forgot-password';
 
   // Passenger
-  static const String home = '/home';
-  static const String support = '/support';
-  static const String membre = '/membre';
-  static const String profile = '/profile';
-  static const String trajet = '/trajet';
+
 
   // Driver
   static const String driverDashboard = '/driver/dashboard';
@@ -37,25 +25,17 @@ class AppRouter {
   static const String driverProfile = '/driver/profile';
 static const String activeRide = '/active-ride';
   static const String chat = '/chat';
+static const String mapPreview = '/map-preview';
 
 
 // Dans routes :
-static const String initialRoute = splash;
+static const String initialRoute = driverDashboard;
 
 
   static Map<String, WidgetBuilder> get routes => {
-    splash: (_) => const SplashPage(),
-    onboarding: (_) => const OnboardingPage(),
-    login: (_) => const LoginPage(),
-    signup: (_) => const SignUpPage(),
-    forgotPass: (_) => const ForgotPasswordPage(),
+    
 
-    // Passenger
-    home: (_) => const passenger.HomePage(),
-    support: (_) => const SupportPage(),
-    membre: (_) => const MembrePassScreen(),
-    profile: (_) => const SettingsPage(),
-    trajet: (_) => const TrajetPage(),
+  
 
     // Driver
     driverDashboard: (_) => const DashboardPage(),
@@ -64,6 +44,8 @@ static const String initialRoute = splash;
     driverProfile: (_) => const DriverProfilePage(),
     activeRide: (_) => const ActiveRidePage(),
     chat: (_) => const ChatPage(),
+    mapPreview: (_) => const MapPreviewPage(),
+
 
   };
 

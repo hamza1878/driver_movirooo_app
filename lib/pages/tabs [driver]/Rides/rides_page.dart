@@ -194,11 +194,11 @@ class _UpcomingTab extends StatelessWidget {
         statusColor: AppColors.primaryPurple,
         onTrack: (ride) {
 
-  Navigator.pushNamed(context, '/active-ride');
+  Navigator.pushNamed(context, '/map-preview', arguments: {'rideId': ride.id});
 
         },
         onChat: (ride) {
-          // TODO: open chat screen
+  Navigator.pushNamed(context, '/chat', arguments: {'rideId': ride.id});
         },
       ),
     );

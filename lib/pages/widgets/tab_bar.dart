@@ -12,14 +12,6 @@ class AppTabBar extends StatelessWidget {
     this.onTap,
   });
 
-  static const _routes = [
-    AppRouter.home,
-    AppRouter.trajet,
-    AppRouter.membre,
-    AppRouter.support,
-    AppRouter.profile,
-  ];
-
   static const _icons = [
     Icons.home_rounded,
     Icons.directions_car_rounded,
@@ -39,7 +31,6 @@ class AppTabBar extends StatelessWidget {
   void _handleTap(BuildContext context, int index) {
     if (index == currentIndex) return;
     onTap?.call(index);
-    Navigator.pushReplacementNamed(context, _routes[index]);
   }
 
   @override
