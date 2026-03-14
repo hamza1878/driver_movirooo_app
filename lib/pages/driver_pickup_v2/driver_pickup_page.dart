@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../../theme/app_colors.dart';
-import '../../../../theme/app_text_styles.dart';
+import 'package:moviroo_driver_app/theme/app_colors.dart';
 import '_PickupTopBar.dart';
 import '_PickupBottomSheet.dart';
 
@@ -45,7 +44,8 @@ class _DriverPickupPageState extends State<DriverPickupPage>
     final sh = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor:AppColors.bg(context),
+      // ✅ Toujours noir — fond de la map
+      backgroundColor: const Color(0xFF0A0A0F),
       body: Stack(
         children: [
 
@@ -82,13 +82,13 @@ class _DriverPickupPageState extends State<DriverPickupPage>
             ),
           ),
 
-          // ── 3. TopBar (toujours visible) ───────────────────
+          // ── 3. TopBar ─────────────────────────────────────
           const Positioned(
             top: 0, left: 0, right: 0,
             child: PickupTopBar(),
           ),
 
-          // ── 4. Current route badge ─────────────────────────
+          // ── 4. Route badge ─────────────────────────────────
           Positioned(
             top: sh * 0.18,
             right: 16,
@@ -107,11 +107,12 @@ class _DriverPickupPageState extends State<DriverPickupPage>
             snapSizes: const [_minSize, _initSize, _maxSize],
             builder: (context, scrollController) {
               return Container(
-                decoration: const BoxDecoration(
-                  color: Color(0xFF13131F),
+                decoration: BoxDecoration(
+                  // ✅ Surface du thème pour le sheet
+                  color: AppColors.surface(context),
                   borderRadius:
-                      BorderRadius.vertical(top: Radius.circular(28)),
-                  boxShadow: [
+                      const BorderRadius.vertical(top: Radius.circular(28)),
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.black45,
                       blurRadius: 30,
@@ -131,29 +132,30 @@ class _DriverPickupPageState extends State<DriverPickupPage>
   }
 }
 
-// ── Route badge ───────────────────────────────────────────────────────────────
+// ── Route badge — toujours dark (sur map) ────────────────────────────────────
 class _RouteInfoBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color:AppColors.bg(context),
+        // ✅ Hardcodé sombre — toujours sur la map
+        color:AppColors.bg(context).withOpacity(0.85),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.10)),
+        border: Border.all(color: Colors.white.withOpacity(0.12)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.navigation_rounded,
+            children:  [
+              Icon(Icons.navigation_rounded,
                   color: Color(0xFF9B59FF), size: 13),
-              const SizedBox(width: 5),
+              SizedBox(width: 5),
               Text('Current route',
                   style: TextStyle(
-                    color:AppColors.subtext(context),
+                    color: AppColors.text(context),
                     fontSize: 11,
                     fontWeight: FontWeight.w500,
                   )),

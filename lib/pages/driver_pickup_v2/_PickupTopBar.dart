@@ -22,7 +22,8 @@ class PickupTopBar extends StatelessWidget {
               child: Container(
                 width: 38, height: 38,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.10),
+                  // ✅ Toujours sombre — on est sur la map
+                  color: Colors.black.withOpacity(0.45),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(color: Colors.white.withOpacity(0.15)),
                 ),
@@ -33,7 +34,7 @@ class PickupTopBar extends StatelessWidget {
 
             const SizedBox(width: 12),
 
-            // Titles
+            // Titles — toujours blancs (sur map)
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,12 +57,13 @@ class PickupTopBar extends StatelessWidget {
               ),
             ),
 
-            // Online badge
+            // Online badge — fond toujours vert sombre
             Container(
               padding: const EdgeInsets.symmetric(
                   horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: AppColors.bg(context),
+                // ✅ Hardcodé vert sombre — pas thème
+                color: const Color(0xFF0D2B1A),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                     color: const Color(0xFF1C5C35), width: 1),
