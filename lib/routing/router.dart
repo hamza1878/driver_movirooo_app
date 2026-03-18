@@ -19,13 +19,12 @@ class AppRouter {
   static const String login = '/login';
   static const String signup = '/signup';
   static const String forgotPass = '/forgot-password';
-
+static const String driverEarningsPage = '/earnings';
   // Passenger
 static const String driverLogin = '/driver/login';
 static const String contactSupport = '/contact-support';
   // Driver
   static const String driverDashboard = '/driver/dashboard';
-  static const String driverEarnings = '/driver/earnings';
   static const String driverRides = '/driver/rides';
   static const String driverProfile = '/driver/profile';
 static const String activeRide = '/driver/active-ride';
@@ -45,10 +44,10 @@ driverDone: (_) => const DriverDone(),
 ratePassenger: (_) => const RatePassengerPage(),
 
 driverPickup: (_) => const DriverPickupPage(),
+driverEarningsPage: (_) => const EarningsPage(),
 
     // Driver
     driverDashboard: (_) => const DashboardPage(),
-    driverEarnings: (_) => const EarningsPage(),
     driverRides: (_) => const RidesPage(),   // ← added
     driverProfile: (_) => const DriverProfilePage(),
   activeRide: (_) => const ActiveRidePage(),

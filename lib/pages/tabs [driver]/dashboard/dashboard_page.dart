@@ -20,7 +20,7 @@ class _DashboardPageState extends State<DashboardPage>
   void _handleTabTap(int index) {
     final routes = [
       AppRouter.driverDashboard,
-      AppRouter.driverEarnings,
+      AppRouter.driverEarningsPage,
       AppRouter.driverRides,
       AppRouter.driverProfile,
     ];

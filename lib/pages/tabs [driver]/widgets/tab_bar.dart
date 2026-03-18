@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moviroo_driver_app/pages/tabs%20%5Bdriver%5D/Earnings/earnings_page.dart';
 import 'package:moviroo_driver_app/routing/router.dart';
 
 class DriverTabBar extends StatelessWidget {
@@ -27,7 +28,7 @@ class DriverTabBar extends StatelessWidget {
 
   static const _routes = [
   AppRouter.driverDashboard,
-  AppRouter.driverEarnings,
+  AppRouter.driverEarningsPage,
   AppRouter.driverRides,
   AppRouter.driverProfile,
 ];
