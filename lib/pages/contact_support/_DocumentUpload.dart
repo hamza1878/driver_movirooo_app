@@ -13,7 +13,6 @@ class _DocumentUploadState extends State<DocumentUpload> {
   final List<String> _files = [];
 
   void _pickFile() {
-    // Simulate file pick — replace with image_picker in production
     setState(() => _files.add('screenshot_${_files.length + 1}.png'));
   }
 
@@ -22,7 +21,6 @@ class _DocumentUploadState extends State<DocumentUpload> {
     return Column(
       children: [
 
-        // ── Upload zone ────────────────────────────────
         GestureDetector(
           onTap: _pickFile,
           child: Container(
@@ -53,7 +51,6 @@ class _DocumentUploadState extends State<DocumentUpload> {
           ),
         ),
 
-        // ── Attached files list ────────────────────────
         if (_files.isNotEmpty) ...[
           const SizedBox(height: 10),
           ..._files.map((f) => _FileChip(

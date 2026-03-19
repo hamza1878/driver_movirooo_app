@@ -123,7 +123,7 @@ class _EarningsPageState extends State<EarningsPage> {
       ),
 
       bottomNavigationBar: DriverTabBar(
-        currentIndex: 2,
+        currentIndex: 1,
         onTap: (i) {},
       ),
     );

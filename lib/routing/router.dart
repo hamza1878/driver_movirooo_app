@@ -5,6 +5,8 @@ import 'package:moviroo_driver_app/pages/driver_pickup_v2/diver_done_ride/driver
 import 'package:moviroo_driver_app/pages/driver_pickup_v2/diver_done_ride/TripRate.dart';
 import 'package:moviroo_driver_app/pages/driver_pickup_v2/driver_pickup_page.dart';
 import 'package:moviroo_driver_app/pages/tabs%20%5Bdriver%5D/chat/chat_page.dart';
+import 'package:moviroo_driver_app/pages/tabs%20%5Bdriver%5D/profile/password/passwordrest.dart';
+import 'package:moviroo_driver_app/pages/tabs%20%5Bdriver%5D/profile/rate/rate.dart';
 import '../pages/tabs [driver]/ActiveRide/active_ride_page.dart';
 import '../pages/tabs [driver]/ride/map_preview_page.dart';
 
@@ -23,6 +25,7 @@ static const String driverEarningsPage = '/earnings';
   // Passenger
 static const String driverLogin = '/driver/login';
 static const String contactSupport = '/contact-support';
+static const String rateApp = '/rate-app';
   // Driver
   static const String driverDashboard = '/driver/dashboard';
   static const String driverRides = '/driver/rides';
@@ -35,17 +38,17 @@ static const String driverDone = '/driver/done';
 // Dans routes :
 static const String initialRoute = driverLogin;
 static const String ratePassenger = '/rate-passenger';
-
+static const String rest = '/driver/password-reset';
   static Map<String, WidgetBuilder> get routes => {
     contactSupport: (_) => const ContactSupportPage(),
 
 driverDone: (_) => const DriverDone(),
   driverLogin: (_) => const DriverLoginPage(),
 ratePassenger: (_) => const RatePassengerPage(),
-
+rest: (_) => const PasswordResetPage(),
 driverPickup: (_) => const DriverPickupPage(),
 driverEarningsPage: (_) => const EarningsPage(),
-
+rateApp: (_) => RatePage(),
     // Driver
     driverDashboard: (_) => const DashboardPage(),
     driverRides: (_) => const RidesPage(),   // ← added

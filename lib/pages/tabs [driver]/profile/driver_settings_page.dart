@@ -59,7 +59,7 @@ class _DriverSettingsPageState extends State<DriverSettingsPage> {
           _RowDivider(),
           _TapRow(
             label: 'Change Password',
-            onTap: () => Navigator.pushNamed(context, '/change-password'),
+            onTap: () => Navigator.pushNamed(context, '/driver/password-reset'),
           ),
 
           const SizedBox(height: 28),
